@@ -14,13 +14,23 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*tmp;
+	const unsigned char	*tmp;
 
 	tmp = (unsigned char *) s;
-	while (n && *tmp != (unsigned char) c)
+	while (n--)
 	{
+		if (*tmp == (unsigned char) c)
+			return ((void *) tmp);
 		tmp++;
-		n--;
 	}
-	return ((void *) tmp);
+	return (NULL);
+}
+
+#include <stdio.h>
+
+int main()
+{
+	int str[] = {20, 5, 12};
+	int c = 5;
+	printf("%i\n", *(int *)ft_memchr(str, c, 8));
 }

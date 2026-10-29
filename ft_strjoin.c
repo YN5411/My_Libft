@@ -17,7 +17,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	char	*arr;
 	char	*tmp;
 
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 		return (NULL);
 	arr = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!arr)
